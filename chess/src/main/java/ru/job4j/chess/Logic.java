@@ -22,9 +22,8 @@ public final class Logic {
 
     private boolean free(Cell[] steps) throws OccupiedCellException {
         for (int j = 0; j < figures.length; j++) {
-            for (int i = 0; i < steps.length; i++) {
-                Figure figure = figures[j];
-                if (figure != null && figure.position().equals(steps[i])) {
+            for (Cell stp : steps) {
+                if (figures[j] != null && figures[j].position().equals(stp)) {
                     throw new OccupiedCellException();
                 }
             }
